@@ -1,5 +1,5 @@
 # She Ships - Hackathon
-![Header](banner.jpg)
+![Header](banner.png)
 
 # She Builds 💜
 
@@ -8,36 +8,74 @@ Este proyecto está siendo desarrollado como parte del **#SheShips Global Hackat
 
 El objetivo de *She Builds* es derribar las barreras que enfrentan las mujeres al realizar una transición de carrera hacia la tecnología. A través de nuestra plataforma, facilitamos el acceso a un aprendizaje adaptativo, validación de habilidades previas y orientación, permitiéndoles tomar decisiones informadas y cerrar la brecha salarial y de oportunidades.
 
-## 🔴 El Problema
-Las mujeres que buscan transicionar al sector tecnológico enfrentan una "triple brecha estructural":
-1. **Falta de tiempo** por labores de cuidado.
-2. **Barreras económicas.**
-3. **Invisibilidad de sus habilidades previas.** Esta desorientación, sumada a mitos limitantes y la ausencia de referentes o mentoras, genera estancamiento, fomenta el síndrome del impostor y frena la innovación diversa en la industria.
+---
 
-## 🌟 La Solución
-Una plataforma de transición profesional que desbloquea el potencial femenino mediante una **IA de Re-skilling inteligente**. 
+# 🔴 El Problema
 
-Nuestra plataforma utiliza un motor de lenguaje avanzado para **traducir experiencias de vida y cuidados en competencias técnicas validadas**, eliminando la invisibilidad del talento previo. Resolvemos la pobreza de tiempo mediante una *Ruta de Micro-aprendizaje* en cápsulas de 15 minutos y derribamos la barrera económica a través de una *Economía de Créditos de Talento* —donde el conocimiento se intercambia como moneda entre mentoras y aprendices— complementada con el financiamiento flexible de Sezzle.
+Muchas mujeres que desean entrar al mundo tech enfrentan una **triple brecha estructural**:
 
-## ✨ Características (MVP)
-* **Traductor de Talentos IA:** Validación de habilidades previas y match con roles tech.
-* **Rutas de Micro-aprendizaje:** Recomendación de recursos de estudio en cápsulas de 15 minutos.
-* **Networking y Mentorías:** Sistema de conexión con referentes de la industria.
-* **Economía de Créditos:** (Prototipo) Intercambio de conocimiento y certificaciones.
+1️⃣ Falta de tiempo debido a responsabilidades de cuidado  
+2️⃣ Barreras económicas para acceder a educación tecnológica  
+3️⃣ Invisibilidad de habilidades previas no técnicas  
+
+Esto provoca:
+
+- Síndrome del impostor
+- Falta de orientación profesional
+- Pérdida de talento diverso en la industria tecnológica
+
+---
+
+# 🌟 Nuestra Solución
+
+**She Builds** es una plataforma que ayuda a mujeres a identificar su camino en tecnología mediante:
+
+### 🤖 IA de orientación profesional
+Un asistente basado en **Gemini AI** que analiza habilidades previas y recomienda roles tecnológicos adecuados.
+
+### ⏱ Micro-aprendizaje adaptativo
+Rutas de aprendizaje en **cápsulas de 15 minutos**, diseñadas para mujeres con poco tiempo disponible.
+
+### 👩‍💻 Mentoría femenina
+Conexión con mujeres que ya trabajan en tecnología para guía y networking.
+
+### 💳 Economía de créditos de talento
+Un sistema de intercambio de conocimiento entre mentoras y aprendices.
+
+---
+
+# ✨ Características del MVP
+
+- Asistente de orientación profesional con IA
+- Sistema de onboarding para entender el perfil del usuario
+- Recomendación de rutas de aprendizaje
+- Conexión con mentoras
+- Dashboard personalizado
+
+---
 
 ## 💻 Tecnologías Utilizadas
 * **Frontend:** React.js / TypeScript.tsx
 * **Estilos:** Tailwind CSS
-* **Inteligencia Artificial:** API de Gemini
+* **Inteligencia Artificial:** API de Gemini (Google)
 * **Diseño y Prototipado:** Figma
 * **Herramientas No-Code:** Lovable
 
-#### 📸 Figma del Proyecto
+---
+
+## 🔗 Enlaces Importantes
+* 🚀 **Despliegue (Live Demo):** ([Demo](https://shebuildsweb.vercel.app))
+
+
+* 🎨 **Prototipo y Diseño:** ([Figma](https://www.figma.com/design/GMcN7DBfPffsmmv7VkDp9J/SheShips_Wireframes?node-id=0-1&m=dev&t=2AqtYSjIUZ2riU3A-1))
+
+
+* 📊 **Presentación (Pitch):**  ([Canva](https://www.canva.com/design/DAHDVNSQWG8/SNYDzaQZTs_F_VQVCxuB9A/view?utm_content=DAHDVNSQWG8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h93f267a65c))
 
 
 ## 🚀 Instalación y Uso
 ```bash
-    git clone [https://github.com/Shiuu28/SheShips---Hackathon.git](https://github.com/Shiuu28/SheShips---Hackathon.git)
+    git clone https://github.com/Shiuu28/SheShips---Hackathon.git
     cd SHESHIPS---HACKATHON
     cd SheBuilds
     npm i
