@@ -85,3 +85,6 @@ Un sistema de intercambio de conocimiento entre mentoras y aprendices.
 * Katty Aquino → Frontend
 * Fatima Zelaya → Full Stack
 * Shiuu Valenzuela → AI & QA
+
+# Demo
+([Video Demo](https://1drv.ms/v/c/1430c73b6c21387e/IQDP5FM26XmSTKiuODr58n6pAaJh9HqpXR1xKhiPK1vmggE?e=cyVGQI))
