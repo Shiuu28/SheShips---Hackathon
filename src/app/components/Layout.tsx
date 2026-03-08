@@ -121,7 +121,7 @@ export function Layout() {
       </main>
 
       <footer className="bg-white border-t border-slate-200 py-12 mt-auto">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6 bottom-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-2">
             <Heart className="w-5 h-5 text-purple-500" fill="currentColor" />
             <span className="text-lg font-bold text-slate-800">She Builds</span>

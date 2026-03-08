@@ -4,12 +4,33 @@ import { ArrowRight, CheckCircle, Linkedin, Briefcase, Clock, Target, ArrowLeft 
 import { motion, AnimatePresence } from "motion/react";
 
 export function Onboarding() {
-  const [step, setStep] = useState(1);
+  // Leer datos del onboarding
+  const storedProfile = JSON.parse(localStorage.getItem("userProfile") || "{}");
+
+  // Fallbacks por si aún no hay datos
+  const user = {
+    name: storedProfile.name || "Invitada",
+    profession: storedProfile.profession || "Sin definir",
+    techLevel: storedProfile.techLevel || "Principiante",
+    interests: storedProfile.interests || [],
+    timeCommitment: storedProfile.timeCommitment || "",
+  };
+
+  // Puedes mapear un "stack" sugerido desde intereses
+  const stack = user.interests?.[0] || "Explorando tech";
+
   const navigate = useNavigate();
 
   const handleNext = () => {
-    if (step < 4) setStep(step + 1);
-    else navigate("/dashboard");
+    if (step < 4) {
+      setStep(step + 1);
+    } else {
+
+      // guardar datos para el dashboard
+      localStorage.setItem("userProfile", JSON.stringify(userData));
+
+      navigate("/dashboard");
+    }
   };
 
   const handleBack = () => {
@@ -61,7 +82,18 @@ export function Onboarding() {
                     <p className="text-slate-600">Creemos tu cuenta para comenzar tu viaje.</p>
                   </div>
 
-                  <button className="w-full py-3.5 px-4 bg-[#0A66C2] hover:bg-[#004182] text-white font-semibold rounded-2xl flex items-center justify-center gap-3 transition-colors shadow-sm">
+                  <button
+                    onClick={() => {
+                      setUserData({
+                        ...userData,
+                        name: "María",
+                        email: "maria@linkedin.com"
+                      });
+
+                      setStep(2);
+                    }}
+                    className="w-full py-3.5 px-4 bg-[#0A66C2] hover:bg-[#004182] text-white font-semibold rounded-2xl flex items-center justify-center gap-3 transition-colors shadow-sm"
+                  >
                     <Linkedin className="w-5 h-5" /> Continuar con LinkedIn
                   </button>
                   
@@ -74,11 +106,27 @@ export function Onboarding() {
                   <div className="space-y-4">
                     <div>
                       <label className="block text-sm font-medium text-slate-700 mb-1.5">Nombre Completo</label>
-                      <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:bg-white transition-all" placeholder="Maria Garcia" />
+                      <input
+                        type="text"
+                        value={userData.name}
+                        onChange={(e) =>
+                          setUserData({ ...userData, name: e.target.value })
+                        }
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:bg-white transition-all"
+                        placeholder="Maria Garcia"
+                      />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-slate-700 mb-1.5">Email</label>
-                      <input type="email" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:bg-white transition-all" placeholder="maria@ejemplo.com" />
+                      <input
+                        type="email"
+                        value={userData.email}
+                        onChange={(e) =>
+                          setUserData({ ...userData, email: e.target.value })
+                        }
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:bg-white transition-all"
+                        placeholder="maria@ejemplo.com"
+                      />
                     </div>
                   </div>
                 </motion.div>
@@ -103,7 +151,13 @@ export function Onboarding() {
 
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-1.5">Profesión Actual</label>
-                    <select className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:bg-white transition-all text-slate-700 appearance-none">
+                    <select
+                      value={userData.profession}
+                      onChange={(e) =>
+                        setUserData({ ...userData, profession: e.target.value })
+                      }
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:bg-white transition-all text-slate-700 appearance-none"
+                    >
                       <option value="">Selecciona una profesión...</option>
                       <option value="teacher">Maestra / Educadora</option>
                       <option value="retail">Comercio / Servicio al Cliente</option>
@@ -119,7 +173,15 @@ export function Onboarding() {
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                       {["Principiante", "Intermedio", "Avanzado"].map(level => (
                         <label key={level} className="flex flex-col items-center justify-center p-4 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 hover:border-purple-200 transition-all focus-within:ring-2 focus-within:ring-purple-500">
-                          <input type="radio" name="techLevel" className="sr-only" />
+                          <input
+                            type="radio"
+                            name="techLevel"
+                            value={level}
+                            onChange={(e) =>
+                              setUserData({ ...userData, techLevel: e.target.value })
+                            }
+                            className="sr-only"
+                          />
                           <span className="text-sm font-medium text-slate-700">{level}</span>
                         </label>
                       ))}
@@ -147,12 +209,43 @@ export function Onboarding() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {["Diseño UX/UI", "Análisis de Datos", "Desarrollo Web", "Gestión de Producto", "Ciberseguridad", "¡Aún no estoy segura!"].map(interest => (
-                      <label key={interest} className="flex items-center p-4 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 hover:border-purple-200 transition-all group">
+                      <label
+                        key={interest}
+                        className="flex items-center p-4 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 hover:border-purple-200 transition-all group"
+                      >
+
+                        <input
+                          type="checkbox"
+                          value={interest}
+                          checked={userData.interests.includes(interest)}
+                          className="sr-only"
+                          onChange={(e) => {
+                            if (e.target.checked) {
+                              setUserData({
+                                ...userData,
+                                interests: [...userData.interests, interest]
+                              });
+                            } else {
+                              setUserData({
+                                ...userData,
+                                interests: userData.interests.filter(i => i !== interest)
+                              });
+                            }
+                          }}
+                        />
+
                         <div className="w-5 h-5 rounded border border-slate-300 mr-3 flex items-center justify-center group-hover:border-purple-400">
-                          {/* Checked state simulation */}
-                          <div className="w-3 h-3 bg-purple-600 rounded-sm hidden"></div>
+
+                          {userData.interests.includes(interest) && (
+                            <div className="w-3 h-3 bg-purple-600 rounded-sm"></div>
+                          )}
+
                         </div>
-                        <span className="text-sm font-medium text-slate-700">{interest}</span>
+
+                        <span className="text-sm font-medium text-slate-700">
+                          {interest}
+                        </span>
+
                       </label>
                     ))}
                   </div>
@@ -183,7 +276,15 @@ export function Onboarding() {
                       { title: "5-10+ horas / semana", desc: "Acelerando mi transición." }
                     ].map(time => (
                       <label key={time.title} className="flex items-start p-4 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 hover:border-purple-200 transition-all group">
-                        <input type="radio" name="time" className="mt-1 flex-shrink-0" />
+                        <input
+                          type="radio"
+                          name="time"
+                          value={time.title}
+                          onChange={(e) =>
+                            setUserData({ ...userData, timeCommitment: e.target.value })
+                          }
+                          className="mt-1 flex-shrink-0"
+                        />
                         <div className="ml-3">
                           <span className="block text-sm font-bold text-slate-900">{time.title}</span>
                           <span className="block text-sm text-slate-500 mt-0.5">{time.desc}</span>
