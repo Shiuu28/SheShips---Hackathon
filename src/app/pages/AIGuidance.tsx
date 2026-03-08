@@ -77,7 +77,7 @@ export function AIGuidance() {
   useEffect(() => {
     // Initialize the chat session
     chatRef.current = ai.chats.create({
-      model: 'gemini-3-flash-preview',
+      model: 'gemini-3.1-flash-lite-preview',
       config: {
         systemInstruction: SYSTEM_INSTRUCTION,
       },
@@ -159,8 +159,8 @@ export function AIGuidance() {
                 {/* Avatar */}
                 <div
                   className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mt-1 ${msg.role === 'user'
-                      ? 'bg-stone-200 text-stone-600 ml-3'
-                      : 'bg-purple-600 text-white mr-3'
+                    ? 'bg-stone-200 text-stone-600 ml-3'
+                    : 'bg-purple-600 text-white mr-3'
                     }`}
                 >
                   {msg.role === 'user' ? <User size={18} /> : <Sparkles size={18} />}
@@ -169,8 +169,8 @@ export function AIGuidance() {
                 {/* Message Bubble */}
                 <div
                   className={`px-5 py-4 rounded-2xl shadow-sm ${msg.role === 'user'
-                      ? 'bg-stone-800 text-white rounded-tr-none'
-                      : 'bg-white border border-stone-200 text-stone-800 rounded-tl-none'
+                    ? 'bg-stone-800 text-white rounded-tr-none'
+                    : 'bg-white border border-stone-200 text-stone-800 rounded-tl-none'
                     }`}
                 >
                   {msg.role === 'user' ? (
