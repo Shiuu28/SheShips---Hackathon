@@ -1,5 +1,5 @@
 # She Ships - Hackathon
-![Header](banner.png)
+![Header](banner.jpg)
 
 # She Builds 💜
 
