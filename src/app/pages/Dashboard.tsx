@@ -168,26 +168,14 @@ export function Dashboard() {
             <div className="bg-white rounded-3xl p-6 shadow-sm border border-slate-100">
               <h2 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
                 <BookOpen className="w-5 h-5 text-blue-500" />
-                Cursos para empezar
+                Tu plan de hoy
               </h2>
-
-              <div className="space-y-3">
-                {aiInsights.recommendedCourses.map((course, i) => (
-                  <div
-                    key={i}
-                    className="p-4 bg-slate-50 rounded-xl flex justify-between items-center"
-                  >
-                    <span className="font-medium text-slate-700">{course}</span>
-
-                    <Link
-                      to="/lessons"
-                      className="text-sm font-semibold text-purple-600 hover:text-purple-700"
-                    >
-                      Ver curso
-                    </Link>
-                  </div>
-                ))}
-              </div>
+              <p className="text-sm text-gray-500 mb-4">Tiempo estimado: 15 minutos</p>
+              <ul className="space-y-2">
+                <li>▶️ Ver video: ¿Qué es UX? (5 min)</li>
+                <li>📖 Leer: Principios básicos de diseño (5 min)</li>
+                <li>📝 Mini ejercicio: Detecta un mal diseño (5 min)</li>
+              </ul>
             </div>
 
           </div>

@@ -1,5 +1,6 @@
 import { Star, Clock, Calendar, MessageCircle, MapPin, Search, Filter } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router";
 
 export function Mentors() {
   const [activeTab, setActiveTab] = useState("Todas");
@@ -64,11 +65,13 @@ export function Mentors() {
             </div>
             <div>
               <p className="text-sm font-bold text-slate-900">¿Eres profesional?</p>
-              <p className="text-xs text-slate-600">Las mentoras ganan recompensas para herramientas como Figma.</p>
+              <p className="text-xs text-slate-600">Las mentoras obtienen visibilidad, impacto en la comunidad y acceso a beneficios del ecosistema tech.</p>
             </div>
-            <button className="text-sm font-semibold text-purple-700 bg-white px-3 py-1.5 rounded-lg border border-purple-200 hover:bg-purple-50 transition-colors">
-              Conviértete en Mentora
-            </button>
+            <Link to="/onboarding" className="ml-auto">
+              <button className="text-sm font-semibold text-purple-700 bg-white px-3 py-1.5 rounded-lg border border-purple-200 hover:bg-purple-50 transition-colors">
+                Conviértete en Mentora
+              </button>
+            </Link>
           </div>
         </div>
 

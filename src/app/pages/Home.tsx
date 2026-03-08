@@ -45,8 +45,7 @@ export function Home() {
               </span>
             </motion.h1>
             <motion.p variants={itemVariants} className="text-lg md:text-xl text-slate-600 max-w-lg leading-relaxed">
-              Una plataforma de apoyo donde las mujeres descubren carreras tecnológicas, aprenden a través de lecciones cortas y reciben
-              mentoría de mujeres con experiencia.
+              Una plataforma donde las mujeres descubren carreras tech, aprenden con micro-lecciones y reciben mentoría de mujeres que ya hicieron la transición.
             </motion.p>
             <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 pt-4">
               <Link
@@ -118,7 +117,7 @@ export function Home() {
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3">Mini Lecciones para Vidas Ocupadas</h3>
               <p className="text-slate-600">
-                Aprende habilidades tecnológicas en solo 15 minutos al día. Perfecto para madres y mujeres con poco tiempo. Sin relleno, solo conocimiento práctico.
+                Avanza en tecnología con micro-lecciones de 15 minutos al día. Recibe tareas prácticas y pasos claros para aprender incluso con poco tiempo disponible.
               </p>
             </div>
             <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">

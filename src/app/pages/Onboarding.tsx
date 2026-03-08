@@ -4,35 +4,31 @@ import { ArrowRight, CheckCircle, Linkedin, Briefcase, Clock, Target, ArrowLeft 
 import { motion, AnimatePresence } from "motion/react";
 
 export function Onboarding() {
-  // Leer datos del onboarding
-  const storedProfile = JSON.parse(localStorage.getItem("userProfile") || "{}");
+  const [step, setStep] = useState(1);
 
-  // Fallbacks por si aún no hay datos
-  const user = {
-    name: storedProfile.name || "Invitada",
-    profession: storedProfile.profession || "Sin definir",
-    techLevel: storedProfile.techLevel || "Principiante",
-    interests: storedProfile.interests || [],
-    timeCommitment: storedProfile.timeCommitment || "",
-  };
+  const [userData, setUserData] = useState({
+    name: "",
+    email: "",
+    profession: "",
+    techLevel: "",
+    interests: [] as string[],
+    timeCommitment: ""
+  });
 
   // Puedes mapear un "stack" sugerido desde intereses
-  const stack = user.interests?.[0] || "Explorando tech";
+  const stack = userData.interests?.[0] || "Explorando tech";
 
   const navigate = useNavigate();
 
   const handleNext = () => {
-    if (step < 4) {
-      setStep(step + 1);
-    } else {
-
-      // guardar datos para el dashboard
-      localStorage.setItem("userProfile", JSON.stringify(userData));
-
-      navigate("/dashboard");
-    }
+  if (step < 4) {
+    setStep(step + 1);
+  } else {
+    localStorage.setItem("userProfile", JSON.stringify(userData));
+    navigate("/dashboard");
+  }
   };
-
+  
   const handleBack = () => {
     if (step > 1) setStep(step - 1);
     else navigate("/");

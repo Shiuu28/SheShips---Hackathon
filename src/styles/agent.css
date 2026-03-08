@@ -36,5 +36,5 @@
 }
 
 .markdown-body a {
-  @apply text-emerald-600 hover:text-emerald-700 underline underline-offset-2;
+  @apply text-purple-400 hover:text-purple-700 underline underline-offset-2;
 }

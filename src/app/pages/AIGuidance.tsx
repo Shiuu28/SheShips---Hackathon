@@ -134,47 +134,44 @@ export function AIGuidance() {
   return (
     <div className="flex flex-col h-screen bg-stone-50 text-stone-900 font-sans">
       {/* Header */}
-      <header className="bg-white border-b border-stone-200 px-6 py-4 flex items-center shadow-sm z-10">
-        <div className="bg-emerald-100 p-2 rounded-full mr-4">
-          <Sparkles className="w-6 h-6 text-emerald-600" />
+      <header className="bg-purple-200/50 backdrop-blur-md border-b border-purple-300/30 px-6 py-4 flex items-center shadow-sm z-10">
+        <div className="bg-purple-100 p-2 rounded-full mr-4">
+          <Sparkles className="w-6 h-6 text-purple-600" />
         </div>
         <div>
-          <h1 className="text-xl font-semibold text-stone-800">Tech Career Advisor</h1>
-          <p className="text-sm text-stone-500">Orientación profesional para mujeres en tecnología</p>
+          <h1 className="text-xl font-semibold text-stone-9 00">Shift8</h1>
+          <p className="text-sm text-stone-700">Tu aliada inteligente en el camino tech</p>
         </div>
       </header>
 
       {/* Chat Area */}
-      <main className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-6">
-        <div className="max-w-3xl mx-auto space-y-6">
+      <main className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-2">
+        <div className="max-w-7xl mx-auto space-y-2">
           {messages.map((msg) => (
             <div
               key={msg.id}
               className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
             >
               <div
-                className={`flex max-w-[85%] sm:max-w-[75%] ${
-                  msg.role === 'user' ? 'flex-row-reverse' : 'flex-row'
-                }`}
+                className={`flex max-w-[85%] sm:max-w-[75%] ${msg.role === 'user' ? 'flex-row-reverse' : 'flex-row'
+                  }`}
               >
                 {/* Avatar */}
                 <div
-                  className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mt-1 ${
-                    msg.role === 'user'
+                  className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mt-1 ${msg.role === 'user'
                       ? 'bg-stone-200 text-stone-600 ml-3'
-                      : 'bg-emerald-600 text-white mr-3'
-                  }`}
+                      : 'bg-purple-600 text-white mr-3'
+                    }`}
                 >
                   {msg.role === 'user' ? <User size={18} /> : <Sparkles size={18} />}
                 </div>
 
                 {/* Message Bubble */}
                 <div
-                  className={`px-5 py-4 rounded-2xl shadow-sm ${
-                    msg.role === 'user'
+                  className={`px-5 py-4 rounded-2xl shadow-sm ${msg.role === 'user'
                       ? 'bg-stone-800 text-white rounded-tr-none'
                       : 'bg-white border border-stone-200 text-stone-800 rounded-tl-none'
-                  }`}
+                    }`}
                 >
                   {msg.role === 'user' ? (
                     <p className="whitespace-pre-wrap">{msg.text}</p>
@@ -190,11 +187,11 @@ export function AIGuidance() {
           {isLoading && (
             <div className="flex justify-start">
               <div className="flex max-w-[85%] sm:max-w-[75%] flex-row">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mt-1 bg-emerald-600 text-white mr-3">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mt-1 bg-purple-600 text-white mr-3">
                   <Sparkles size={18} />
                 </div>
                 <div className="px-5 py-4 rounded-2xl shadow-sm bg-white border border-stone-200 text-stone-800 rounded-tl-none flex items-center space-x-2">
-                  <Loader2 className="w-5 h-5 animate-spin text-emerald-600" />
+                  <Loader2 className="w-5 h-5 animate-spin text-purple-600" />
                   <span className="text-stone-500 text-sm">Analizando tu perfil...</span>
                 </div>
               </div>
@@ -205,11 +202,11 @@ export function AIGuidance() {
       </main>
 
       {/* Input Area */}
-      <footer className="bg-white border-t border-stone-200 p-4 sm:p-6">
+      <footer className="bg-white border-t border-stone-200 p-4 sm:p-6 bottom-0 justify-between flex">
         <div className="max-w-3xl mx-auto">
           <form
             onSubmit={handleSubmit}
-            className="flex items-center bg-stone-100 rounded-full border border-stone-300 focus-within:border-emerald-500 focus-within:ring-1 focus-within:ring-emerald-500 transition-all shadow-sm overflow-hidden"
+            className="flex items-center bg-stone-100 rounded-full border border-stone-300 focus-within:border-purple-500 focus-within:ring-1 focus-within:ring-purple-500 transition-all shadow-sm overflow-hidden"
           >
             <input
               type="text"
@@ -222,12 +219,12 @@ export function AIGuidance() {
             <button
               type="submit"
               disabled={!input.trim() || isLoading}
-              className="p-3 mr-2 rounded-full bg-emerald-600 text-white hover:bg-emerald-700 disabled:bg-stone-300 disabled:text-stone-500 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
+              className="p-3 mr-2 rounded-full bg-purple-600 text-white hover:bg-purple-700 disabled:bg-stone-300 disabled:text-stone-500 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
             >
               <Send size={20} />
             </button>
           </form>
-          <p className="text-center text-xs text-stone-400 mt-3">
+          <p className="text-center text-xm text-stone-400 mt-3">
             La asesora puede cometer errores. Considera verificar la información importante.
           </p>
         </div>
