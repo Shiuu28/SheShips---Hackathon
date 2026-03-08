@@ -76,7 +76,7 @@ Un sistema de intercambio de conocimiento entre mentoras y aprendices.
 ## 🚀 Instalación y Uso
 ```bash
     git clone https://github.com/Shiuu28/SheShips---Hackathon.git
-    cd SHESHIPS---HACKATHON
+    cd SheShips---Hackathon
     npm i
     npm run dev
 ```
