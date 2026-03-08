@@ -77,7 +77,6 @@ Un sistema de intercambio de conocimiento entre mentoras y aprendices.
 ```bash
     git clone https://github.com/Shiuu28/SheShips---Hackathon.git
     cd SHESHIPS---HACKATHON
-    cd SheBuilds
     npm i
     npm run dev
 ```
